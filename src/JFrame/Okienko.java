@@ -1,5 +1,7 @@
 package JFrame;
 
-public class Okienko {
+import javax.swing.JFrame;
+
+public class Okienko extends JFrame {
 
 }
