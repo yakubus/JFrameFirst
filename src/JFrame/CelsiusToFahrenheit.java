@@ -27,6 +27,7 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener{
 	private double tempCelsius, tempFahrenheit;
 	//*******************************************************
 	
+	//konstruktor
 	public CelsiusToFahrenheit() {
 	
 				
@@ -61,7 +62,7 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener{
 		chWielkie = new JCheckBox("Wielkie litery");
 		chWielkie.setBounds(250, 120 ,150 , 20);
 		add(chWielkie);
-		chWielkie.addActionListener(this);
+		//chWielkie.addActionListener(this);
 		
 		bgRozmiar = new ButtonGroup();
 		
@@ -94,17 +95,16 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener{
 		Object zrodlo = e.getSource();
 		
 		if (zrodlo==bKonwertuj || zrodlo==tCelsius) {
-		tempCelsius = Double.parseDouble(tCelsius.getText());
-		tempFahrenheit = 32.0 + (9.0/5) *tempCelsius;
-		tFahrenheit.setText(String.valueOf(tempFahrenheit));
-		}else if(zrodlo==chWielkie) {
-			if(chWielkie.isSelected()==true){
+			
+			if(chWielkie.isSelected()){
 				tFahrenheit.setFont(new Font("SeansSerif", Font.BOLD, 18));
 			}else {
 				tFahrenheit.setFont(new Font("SeansSerif", Font.PLAIN, 12));
 			}
-			
-		}else if (zrodlo==rbMaly) {
+		tempCelsius = Double.parseDouble(tCelsius.getText());
+		tempFahrenheit = 32.0 + (9.0/5) *tempCelsius;
+		tFahrenheit.setText(String.valueOf(tempFahrenheit));
+		}if (zrodlo==rbMaly) {
 			tFahrenheit.setFont(new Font("SeansSerif", Font.PLAIN, 12));
 		}else if (zrodlo==rbSredni) {
 			tFahrenheit.setFont(new Font("SeansSerif", Font.PLAIN, 16));
@@ -117,9 +117,6 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener{
 	}
 	
 	
-
-
-
 	public static void main (String[] args) {
 		CelsiusToFahrenheit aplikacja = new CelsiusToFahrenheit();
 		aplikacja.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
